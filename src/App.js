@@ -38,12 +38,11 @@ export default function App() {
               <Text style={styles.repository}>{repo.title}</Text>
 
               <View style={styles.techsContainer}>
-                <Text style={styles.tech}>
-                  ReactJS
-              </Text>
-                <Text style={styles.tech}>
-                  Node.js
-              </Text>
+                {repo.techs.map((tech, i)=>(
+                  <Text key={i} style={styles.tech}>
+                    {tech}
+                  </Text>
+                ))}
               </View>
 
               <View style={styles.likesContainer}>
@@ -90,11 +89,13 @@ const styles = StyleSheet.create({
   techsContainer: {
     flexDirection: "row",
     marginTop: 10,
+    flexWrap: "wrap"
   },
   tech: {
     fontSize: 12,
     fontWeight: "bold",
     marginRight: 10,
+    marginBottom: 10,
     backgroundColor: "#04d361",
     paddingHorizontal: 10,
     paddingVertical: 5,
